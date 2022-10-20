@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}Записи сообщества {{ group.title }}{% endblock %}
+{% block header %}Последние обновления на сайте{% endblock %}
+{% block content %}
+
+<h1>{{ group }}</h1>
+<p>
+    {{ group }}
+</p>
+{% for post in posts %}
+    <h3>
+        Автор: {{ post.author }}, дата публикации: {{post.pub_date}}
+    </h3>
+    <p>{{ post.text }}</p>
+{% if not forloop.last %}<hr>{% endif %}
+{% endfor %}
+{% endblock %}
