@@ -59,7 +59,7 @@ Find [the documentation here](/docs/_includes/popper-documentation.md).
 
 ### Tooltip.js
 
-Since lots of users just need a simple way to integrate powerful tooltips in their projects,
+Since lots of Users just need a simple way to integrate powerful tooltips in their projects,
 we created **Tooltip.js**.  
 It's a small library that makes it easy to automatically create tooltips using as engine Popper.js.  
 Its API is almost identical to the famous tooltip system of Bootstrap, in this way it will be
