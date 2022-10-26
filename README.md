@@ -1,2 +1,2 @@
-# video_hosting
+# socail
 Социальная сеть блогеров
