@@ -5,13 +5,18 @@
 
 <h1>{{ group }}</h1>
 <p>
-    {{ group }}
+    {{ group.description }}
 </p>
-{% for post in posts %}
+{% for post in page %}
     <h3>
-        Автор: {{ post.author }}, дата публикации: {{post.pub_date}}
+        Автор: {{ post.author.get_full_name }}, дата публикации: {{post.pub_date}}
     </h3>
     <p>{{ post.text }}</p>
 {% if not forloop.last %}<hr>{% endif %}
 {% endfor %}
+
+{% if page.has_other_pages %}
+    {% include "paginator.html" with items=page paginator=paginator %}
+{% endif %}
+
 {% endblock %}

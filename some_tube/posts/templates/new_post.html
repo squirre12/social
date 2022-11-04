@@ -1,8 +1,8 @@
 {% extends "base.html" %}
-{% block title %}Новый пост{% endblock %}
+{% block title %}{% if form.instance.pk %}Редактировать пост{% else %}Новый пост{% endif %}{% endblock %}
 {% block content %}
 
-<form method="post" action="{% url 'new_post' %}">
+<form method="post" action='{% if form.instance.pk %} {% url "post_edit" user form.instance.id%} {% else %} {% url "new_post" %} {% endif %}'>
     {% csrf_token %}
     {% for field in form %}
         <div class="form-group row" aria-required={% if field.field.required %}"true"{% else %}"false"{% endif %}>
@@ -16,7 +16,7 @@
         </div>
     {% endfor %}
     <div class="col-md-6 offset-md-4">
-        <button type="submit" class="btn btn-primary">Опубликовать</button>
+        <button type="submit" class="btn btn-primary">{% if form.instance.pk %}Редактировать{% else %}Добавить{% endif %}</button>
     </div>
 </form>
 {% endblock %}

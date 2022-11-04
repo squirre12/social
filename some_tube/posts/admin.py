@@ -2,6 +2,11 @@ from django.contrib import admin
 from .models import Post, Group
 
 
+class GroupAdmin(admin.ModelAdmin):
+    list_display = ("title", "description")
+    search_fields = ("title",)
+
+
 class PostAdmin(admin.ModelAdmin):
     list_display = ("pk", "text", "pub_date", "author")
     search_fields = ("text",)
@@ -9,4 +14,4 @@ class PostAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Post, PostAdmin)
-admin.site.register(Group)
+admin.site.register(Group, GroupAdmin)
